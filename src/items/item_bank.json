@@ -1,0 +1,14 @@
+{
+	"edible": 
+	[
+		{
+			"name": "bread",
+			"heal": 3
+		},
+
+		{
+			"name": "cake",
+			"heal": 4
+		}
+	]
+}
