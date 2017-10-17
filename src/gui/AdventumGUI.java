@@ -4,9 +4,8 @@ import equipment.*;
 import player.Player;
 
 import javax.swing.*;
-import javax.swing.border.LineBorder;
-import javax.swing.border.TitledBorder;
-import java.awt.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 
 public class AdventumGUI {
 
@@ -19,8 +18,7 @@ public class AdventumGUI {
     private JComboBox<Shield> shieldBox;
     private JComboBox<Weapon> weaponBox;
     private JLabel physOffBonus, magOffBonus, physDefBonus, magDefBonus;
-    private JPanel monsterIcon;
-    private JLabel monsterName;
+    private JLabel monsterIcon, monsterName;
     private JProgressBar enemyHp;
     private JProgressBar myHp;
     private JProgressBar levelProgress;
@@ -30,6 +28,7 @@ public class AdventumGUI {
     private JLabel enemyMagDef;
     private JLabel level;
     private JPanel overarching;
+    private JPanel combatPanel;
 
     /**
      * Create the application.
@@ -70,6 +69,13 @@ public class AdventumGUI {
         weaponBox.addActionListener((l) -> {
             player.getEquipped().setWeapon((Weapon) weaponBox.getSelectedItem());
             configureBonuses();
+        });
+        monsterIcon.setIcon(new ImageIcon("src/gui/img/testing.jpg"));
+        monsterIcon.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                combatPanel.setVisible(false);
+            }
         });
     }
 
