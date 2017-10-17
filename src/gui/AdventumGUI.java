@@ -42,6 +42,9 @@ public class AdventumGUI {
         init();
     }
 
+    /**
+     * Configures the JFrame and its components & adds listeners
+     */
     private void init() {
         final Equipment equipment = new Equipment();
         player = new Player(equipment);
