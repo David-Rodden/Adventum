@@ -9,6 +9,10 @@ public class Statistics {
         health = level.getMaxHealth();
     }
 
+    /**
+     * Heals the player by a specified amount
+     * @param heal
+     */
     public void alterHealth(final int heal) {
         final int health = this.health + heal, max = level.getMaxHealth();
         this.health = health > max ? max : health;
