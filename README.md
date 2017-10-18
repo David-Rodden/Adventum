@@ -1,6 +1,7 @@
 ![Adventum](img/adventum%20logo.png)
 
 ## Objective
+
 Adventum is a simple Swing RPG that has a user navigate through a simple UI.
 The objective of the game is to have users combat foes and reap experience and rewards.
 
