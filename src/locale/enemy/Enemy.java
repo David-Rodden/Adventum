@@ -1,4 +1,4 @@
-package enemy;
+package locale.enemy;
 
 import org.json.JSONObject;
 
