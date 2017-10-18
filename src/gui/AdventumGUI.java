@@ -1,6 +1,7 @@
 package gui;
 
 import equipment.*;
+import player.Level;
 import player.Player;
 
 import javax.swing.*;
@@ -27,7 +28,7 @@ public class AdventumGUI {
     private JLabel enemyMagOff;
     private JLabel enemyPhysDef;
     private JLabel enemyMagDef;
-    private JLabel level;
+    private JLabel levelLabel;
     private JPanel overarching;
     private JPanel combatPanel;
     private JLabel location;
@@ -88,6 +89,19 @@ public class AdventumGUI {
         location.setText("Denville");
         locationIcon.setIcon(new ImageIcon(new ImageIcon("src/locale/img/Denville.jpg").getImage().getScaledInstance(400, 400, Image.SCALE_AREA_AVERAGING)));
         combatPanel.setVisible(false);
+        locationIcon.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent e) {
+                final Level level = player.getStatistics().getLevel();
+                level.addXp(1000);
+                level.update();
+                final int xp = level.getXp();
+                levelProgress.setMaximum(level.getNextXp() - level.getPrevXp());
+                levelProgress.setValue(levelProgress.getMaximum() - level.getRemainingXp());
+                levelProgress.setString(xp + "/" + level.getNextXp());
+                levelLabel.setText(String.valueOf(level.getLevel()));
+            }
+        });
     }
 
     private void configureBonuses() {

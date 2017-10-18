@@ -1,26 +1,42 @@
 package player;
 
 public class Level {
-	private int level;
-	private int xp;
+    private int level;
+    private int xp;
 
-	public Level() {
-		level = 1;
-	}
+    public Level() {
+        level = 1;
+    }
 
-	public int getLevel() {
-		return level;
-	}
+    public int getLevel() {
+        return level;
+    }
 
-	public void addXp(final int xp) {
-		this.xp += xp;
-	}
+    public void addXp(final int xp) {
+        this.xp += xp;
+    }
 
-	public int getMaxHealth() {
-		return 9 + level;
-	}
+    int getMaxHealth() {
+        return 9 + level;
+    }
 
-	public void update() {
-		level = (int) Math.floor(Math.pow(xp, .5));
-	}
+    public void update() {
+        level = (int) Math.floor(Math.pow(xp, .4));
+    }
+
+    public int getXp() {
+        return xp;
+    }
+
+    public int getPrevXp() {
+        return (int) Math.pow(level, 2.5);
+    }
+
+    public int getNextXp() {
+        return (int) Math.pow(level + 1, 2.5);
+    }
+
+    public int getRemainingXp() {
+        return getNextXp() - xp;
+    }
 }
