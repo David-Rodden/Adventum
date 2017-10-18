@@ -1,0 +1,20 @@
+{
+  "Denville": {
+    "enemies": [
+      "rat",
+      "stray cat",
+      "mugger"
+    ],
+    "shopping": true
+  },
+  "Denville outskirts": {
+    "enemies": [
+      "rat",
+      "oversized rat",
+      "tree nymph",
+      "highwayman",
+      "brown bear"
+    ],
+    "shopping": false
+  }
+}

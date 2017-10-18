@@ -4,6 +4,7 @@ import equipment.*;
 import player.Player;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -29,6 +30,10 @@ public class AdventumGUI {
     private JLabel level;
     private JPanel overarching;
     private JPanel combatPanel;
+    private JLabel location;
+    private JLabel locationIcon;
+    private JButton exploreButton;
+    private JButton shopButton;
 
     /**
      * Create the application.
@@ -80,6 +85,9 @@ public class AdventumGUI {
                 combatPanel.setVisible(false);
             }
         });
+        location.setText("Denville");
+        locationIcon.setIcon(new ImageIcon(new ImageIcon("src/locale/img/Denville.jpg").getImage().getScaledInstance(400, 400, Image.SCALE_AREA_AVERAGING)));
+        combatPanel.setVisible(false);
     }
 
     private void configureBonuses() {

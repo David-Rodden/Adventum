@@ -23,4 +23,4 @@ The player's level, which is taken into account during combat, is not displayed 
 
 ## Example
 
-![Hello](img/adventum%20gui%20example.PNG)
+![Hello](img/adventum%20example.PNG)
