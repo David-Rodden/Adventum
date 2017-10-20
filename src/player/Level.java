@@ -1,17 +1,28 @@
 package player;
 
+import javax.swing.*;
+import java.awt.*;
+
 public class Level {
     private int level;
     private int xp;
 
     public Level() {
-        level = 1;
+        update();
     }
 
+    /**
+     *
+     * @return int - the current level
+     */
     public int getLevel() {
         return level;
     }
 
+    /**
+     *
+     * @param xp
+     */
     public void addXp(final int xp) {
         this.xp += xp;
     }
@@ -33,10 +44,19 @@ public class Level {
     }
 
     public int getNextXp() {
-        return (int) Math.pow(level + 1, 2.5);
+        return (int) Math.ceil(Math.pow(level + 1, 2.5));
     }
 
     public int getRemainingXp() {
         return getNextXp() - xp;
+    }
+
+    /**
+     * To be called when a level progressbar needs its text updated
+     *
+     * @return String as "current xp / required xp for next level"
+     */
+    public String toString() {
+        return xp + "/" + getNextXp() + " XP";
     }
 }

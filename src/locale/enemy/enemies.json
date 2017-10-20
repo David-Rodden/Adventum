@@ -1,6 +1,7 @@
 {
   "rat": {
     "lvl": 1,
+    "hp": 5,
     "patt": 1,
     "pdef": 0,
     "matt": 0,
@@ -8,6 +9,7 @@
   },
   "stray cat": {
     "lvl": 1,
+    "hp": 7,
     "patt": 1,
     "pdef": 1,
     "matt": 0,
@@ -15,6 +17,7 @@
   },
   "mugger": {
     "lvl": 2,
+    "hp": 10,
     "patt": 2,
     "pdef": 1,
     "matt": 0,
@@ -22,6 +25,7 @@
   },
   "oversized rat": {
     "lvl": 3,
+    "hp": 15,
     "patt": 3,
     "pdef": 0,
     "matt": 0,
@@ -29,6 +33,7 @@
   },
   "tree nymph": {
     "lvl": 3,
+    "hp": 22,
     "patt": 2,
     "pdef": 2,
     "matt": 1,
@@ -36,6 +41,7 @@
   },
   "highwayman": {
     "lvl": 4,
+    "hp": 30,
     "patt": 3,
     "pdef": 2,
     "matt": 0,
@@ -43,6 +49,7 @@
   },
   "brown bear": {
     "lvl": 5,
+    "hp": 40,
     "patt": 4,
     "pdef": 1,
     "matt": 0,

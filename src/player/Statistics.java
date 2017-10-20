@@ -2,8 +2,11 @@ package player;
 
 public class Statistics {
     private int health;
-    private Level level;
+    private final Level level;
 
+    /**
+     * Initialize statistics with player's health & level
+     */
     Statistics() {
         level = new Level();
         health = level.getMaxHealth();
@@ -11,6 +14,7 @@ public class Statistics {
 
     /**
      * Heals the player by a specified amount
+     *
      * @param heal
      */
     public void alterHealth(final int heal) {

@@ -35,6 +35,7 @@ public class AdventumGUI {
     private JLabel locationIcon;
     private JButton exploreButton;
     private JButton shopButton;
+    private JPanel venturePanel;
 
     /**
      * Create the application.
@@ -83,22 +84,20 @@ public class AdventumGUI {
         monsterIcon.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
-                combatPanel.setVisible(false);
             }
         });
         location.setText("Denville");
         locationIcon.setIcon(new ImageIcon(new ImageIcon("src/locale/img/Denville.jpg").getImage().getScaledInstance(400, 400, Image.SCALE_AREA_AVERAGING)));
-        combatPanel.setVisible(false);
+        venturePanel.setVisible(false);
         locationIcon.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 final Level level = player.getStatistics().getLevel();
-                level.addXp(1000);
+                level.addXp(1);
                 level.update();
-                final int xp = level.getXp();
                 levelProgress.setMaximum(level.getNextXp() - level.getPrevXp());
                 levelProgress.setValue(levelProgress.getMaximum() - level.getRemainingXp());
-                levelProgress.setString(xp + "/" + level.getNextXp());
+                levelProgress.setString(level.toString());
                 levelLabel.setText(String.valueOf(level.getLevel()));
             }
         });
