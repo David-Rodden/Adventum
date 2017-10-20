@@ -39,6 +39,13 @@ public class CombatInstance {
     }
 
     /**
+     * @return whether the players starts the fight first
+     */
+    public boolean isSelfPriority() {
+        return selfPriority;
+    }
+
+    /**
      * Checks whether the enemy's health is 0.
      *
      * @return boolean signifying whether enemy is dead

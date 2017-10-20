@@ -86,14 +86,15 @@ public class AdventumGUI {
             public void mouseClicked(MouseEvent e) {
             }
         });
+        levelProgress.setString(player.getStatistics().getLevel().toString());
         location.setText("Denville");
         locationIcon.setIcon(new ImageIcon(new ImageIcon("src/locale/img/Denville.jpg").getImage().getScaledInstance(400, 400, Image.SCALE_AREA_AVERAGING)));
-        venturePanel.setVisible(false);
+        combatPanel.setVisible(false);
         locationIcon.addMouseListener(new MouseAdapter() {
             @Override
             public void mouseClicked(MouseEvent e) {
                 final Level level = player.getStatistics().getLevel();
-                level.addXp(1);
+                level.addXp(10);
                 level.update();
                 levelProgress.setMaximum(level.getNextXp() - level.getPrevXp());
                 levelProgress.setValue(levelProgress.getMaximum() - level.getRemainingXp());

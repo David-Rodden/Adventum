@@ -12,7 +12,6 @@ public class Level {
     }
 
     /**
-     *
      * @return int - the current level
      */
     public int getLevel() {
@@ -20,7 +19,6 @@ public class Level {
     }
 
     /**
-     *
      * @param xp
      */
     public void addXp(final int xp) {
@@ -32,7 +30,7 @@ public class Level {
     }
 
     public void update() {
-        level = (int) Math.floor(Math.pow(xp, .4));
+        level = (int) Math.floor(Math.pow(xp, .4)) + 1;
     }
 
     public int getXp() {
@@ -40,11 +38,11 @@ public class Level {
     }
 
     public int getPrevXp() {
-        return (int) Math.pow(level, 2.5);
+        return (int) Math.pow(level - 1, 2.5);
     }
 
     public int getNextXp() {
-        return (int) Math.ceil(Math.pow(level + 1, 2.5));
+        return (int) Math.ceil(Math.pow(level, 2.5));
     }
 
     public int getRemainingXp() {
