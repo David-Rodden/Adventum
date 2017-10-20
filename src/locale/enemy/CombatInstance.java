@@ -5,36 +5,73 @@ import equipment.Equipped;
 import org.json.JSONObject;
 import org.json.JSONTokener;
 import player.Player;
+import player.Statistics;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.Random;
 
+/**
+ * Combat between one player and one enemy.
+ */
 public class CombatInstance {
-    private final Player player;
+    private final Equipped equipped;
+    private final Statistics statistics;
+    private final Random random;
     private Enemy enemy;
 
     private boolean selfPriority;
 
+    /**
+     * @param name   as the name of the enemy
+     * @param player to be used to get statistics & worn equipment
+     */
     public CombatInstance(final String name, final Player player) {
         try {
             this.enemy = new Enemy(name, ((JSONObject) new JSONTokener(new FileInputStream("src/locale/enemy/enemies.json")).nextValue()).getJSONObject(name));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
-        this.player = player;
+        equipped = player.getEquipped();
+        statistics = player.getStatistics();
         selfPriority = new Random().nextBoolean();
+        random = new Random();
     }
 
+    /**
+     * Checks whether the enemy's health is 0.
+     *
+     * @return boolean signifying whether enemy is dead
+     */
     public boolean haveWon() {
         return enemy.isDead();
     }
 
+    /**
+     * Deals physical damage to the enemy based on self stats
+     */
     public void physAttackEnemy() {
-        enemy.dealDamage(new Random().nextInt(player.getEquipped().getPhysOffBonus()));
+        enemy.dealDamage(random.nextInt(equipped.getPhysOffBonus()));
     }
 
+    /**
+     * Deals magical damage to the enemy based on self stats
+     */
+    public void magAttackEnemy() {
+        enemy.dealDamage(random.nextInt(equipped.getMagDefBonus()));
+    }
+
+    /**
+     * Deals physical damage to self based on enemy stats
+     */
     public void bePhysAttacked() {
-        player.getStatistics().alterHealth(new Random().nextInt(enemy.getPhysAtt()));
+        statistics.alterHealth(random.nextInt(enemy.getPhysAtt()));
+    }
+
+    /**
+     * Deals magical damage to self based on enemy stats
+     */
+    public void beMagAttacked() {
+        statistics.alterHealth(random.nextInt(enemy.getMagAtt()));
     }
 }
